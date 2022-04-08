@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="CSSs/Home.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <title>Math For Kids</title>
+    </head>
+    <body>
+        <div class="wrapper">
+
+        <!-- Main -->
+            <div class="main" id="main">
+                <div class="title">Math For Kids</div>
+                <div class="play" id="play-btn" onclick="Play()">
+                    <div class="play-btn">PLAY</div>
+                </div>
+            </div>  
+
+        <!-- Overlay -->
+            <div class="overlay-game" id="overlay">
+                <div class="title-bar">Math For Kids</div>
+                <div class="score-div" id="score">Score: 0</div>
+                <div class="equation-div">
+                    <h1 class="num1" id="num1"></h1>
+                    <h1 class="operator">+</h1>
+                    <h1 class="num2" id="num2"></h1>
+                    <h1 class="equal">=</h1>
+                    <h1 id="ans">?</h1>
+                </div>
+                <div class="choices-div">
+                    <h1 class="option1" id="option1">1</h1>
+                    <h1 class="option2" id="option2">1</h1>
+                    <h1 class="option3" id="option3">1</h1>
+                </div>
+            </div>
+
+            <div class="video-div" id="vid-div">
+                <div class="x-btn" id="x" onclick="closed()">+</div>
+                <div class="sorry">Sorry HaHaHaHa</div>
+                <video id="vid">
+                    <source src="media/videoplayback.mp4" type="video/mp4">
+                     Your browser does not support the video tag.
+                  </video>
+            </div>
+         </div>  
+        <script src="javascript/script.js"></script>
+    </body>  
+</html>
