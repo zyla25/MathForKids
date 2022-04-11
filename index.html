@@ -34,19 +34,38 @@
                     <h1 class="option2" id="option2">1</h1>
                     <h1 class="option3" id="option3">1</h1>
                 </div>
+            </div>     
+            <div class="checkBackground" id="modalCheck">
+                <div class="check-div">
+                    <div class="ifCorrect" id="ifCorrect">
+                        <h1 class="correctHeading">CORRECT</h1>
+                        <div class="correctEquation">
+                            <h1 class="correctNum1" id="checkNum1">1</h1>
+                            <h1 class="correctOperator">+</h1>
+                            <h1 class="correctNum2" id="checkNum2">2</h1>
+                            <h1 class="correctEqual">=</h1>
+                            <h1 class="correctAns" id="checkAnswer">?</h1>
+                        </div>
+                        <h3 class="correctMessage" id="answerMessage">Correct Answer: </h3>
+                        <button class="nextBtn" onclick = "tuloy()">CONTINUE</button>
+                     </div>
+                     <div class="ifWrong" id="ifWrong">
+                        <h1 class="wrongHeading">WRONG</h1>
+                         <div class="wrongEquation">
+                            <h1 class="wrongNum1" id="wrongCheckNum1">1</h1>
+                            <h1 class="wrongOperator">+</h1>
+                            <h1 class="wrongNum2" id="wrongCheckNum2">2</h1>
+                            <h1 class="wrongEqual">=</h1>
+                            <h1 class="wrongAns" id="wrongCheckAnswer">?</h1>
+                         </div>
+                        <h4 class="wrongMessage" id="wrongAnswer">Answer Mo</h4>
+                        <h4 class="wrongAnswerMessage" id="wrongAnswerMessage">Correct Answer: </h4>
+                        <button class="tryBtn" onclick="talo()">TRY AGAIN</button>
+                     </div>
+                </div>
             </div>
-
             
-
-            <div class="video-div" id="vid-div">
-                <div class="x-btn" id="x" onclick="closed()">+</div>
-                <div class="sorry">Sorry HaHaHaHa</div>
-                <video id="vid">
-                    <source src="media/videoplayback.mp4" type="video/mp4">
-                     Your browser does not support the video tag.
-                  </video>
-            </div>
-         </div>  
+         </div>        
         <script src="javascript/script.js"></script>
     </body>  
 </html>
