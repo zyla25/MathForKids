@@ -62,18 +62,16 @@ function generate_equation(){  //This Function will generate equation (1 + 1 = 2
     repeatChecker(answer,dummy_answer1,dummy_answer2);
 }
 
-function repeatChecker(answer1, dummy1, dummy2) { //This will check if the dummy answer is the same to the correct answer
-   
+
+function repeatChecker(answer1, dummy1, dummy2) { //This will check if the dummy answers are the same to the correct answer 
     let allAnswers = []; //Empty Array to store all options 
-    let randomAllAnswers = []; // Empty Array to store the random allAnswers (for Options to become random)
-
-
+    let randomAllAnswers = []; // Empty Array to store the random allAnswers (for Random Options)
     if((dummy1 === answer1 || dummy2 === answer1) || (dummy1===dummy2)){ // If true it will generate another random numbers
         dummy_answer1 = Math.floor(Math.random() * 21); 
         dummy_answer2 = Math.floor(Math.random() * 21); 
         repeatChecker(answer1,dummy_answer1,dummy_answer2);
     } else { //False 
-         //It will store all the option (answers) to AllAnswers 
+         //It will store all the option (answers) to AllAnswers  
          allAnswers = [dummy_answer1, answer, dummy_answer2];
 
          for(i = allAnswers.length; i--;){ //This will randomize the elements of allAnswer elements and store the randomize elemnt to randomAllAnswer variable
@@ -95,9 +93,8 @@ option1.addEventListener("click", function(){
         correctAnswer();
         score++;
         scoreDiv.innerHTML = "Score: " + score;
-        generate_equation();
     }else{
-        wrongAnswer();
+        wrongAnswer(option1.innerHTML);
         // wrong()
     }
 })
@@ -107,9 +104,8 @@ option2.addEventListener("click", function(){ //If True this will add 1 point to
         correctAnswer();
         score++;
         scoreDiv.innerHTML = "Score: " + score;
-        generate_equation();
     }else{
-        wrongAnswer();
+        wrongAnswer(option2.innerHTML);
         // wrong()
     }
 })
@@ -119,23 +115,11 @@ option3.addEventListener("click", function(){ //If True this will add 1 point to
         correctAnswer();
         score++;
         scoreDiv.innerHTML = "Score: " + score;
-        generate_equation();
     }else{
-        wrongAnswer();
+        wrongAnswer(option3.innerHTML);
         // wrong()
     }
 })
-
-let video = document.getElementById("vid");
-
-function wrong(){
-    video.currentTime = 0;
-    video.play(); 
-    overlay.classList.toggle("showOverlay");
-    document.getElementById("vid-div").classList.toggle("showVideo"); 
-    score = 0; 
-    scoreDiv.innerHTML = "Score: " + score;
-}
 
 function closed(){
     video.pause();
@@ -162,12 +146,47 @@ let audioTrack = [
 
 ];
 
-function correctAnswer(){
-    track.src = audioTrack[0].path;
-    track.play();
+function correctAnswer(){  //Function if the answer is correct 
+    track.src = audioTrack[0].path; //This will load the index 0 in Audio Track ( path: "media/correct.mp3")
+    track.play(); //This will play the track above
+    document.getElementById("checkNum1").innerHTML = num1; //Display num1 to modal 
+    document.getElementById("checkNum2").innerHTML = num2; //Display num2 to modal 
+    document.getElementById("checkAnswer").innerHTML = answer; //Display answer to modal 
+    document.getElementById("answerMessage").innerHTML = "CORRECT ANSWER: " + answer; //Display answer to modal 
+    document.getElementById("modalCheck").style.opacity="1"; //This will show the modal 
+    document.getElementById("modalCheck").style.zIndex="9999";  //This will set the z-index of modal for the modal's button element
 }
 
-function wrongAnswer(){
-    track.src = audioTrack[1].path;
-    track.play();
+function wrongAnswer(xAnswer){ //Function if the answer is correct 
+    track.src = audioTrack[1].path; //This will load the index 1 in Audio Track (path: "media/wrong.mp3")
+    track.play();   //This will play the track above
+    document.getElementById("wrongCheckNum1").innerHTML = num1; //Display num1 to modal 
+    document.getElementById("wrongCheckNum2").innerHTML = num2; //Display num2 to modal 
+    document.getElementById("wrongCheckAnswer").innerHTML = answer;  //Display answer to modal 
+    document.getElementById("wrongAnswer").innerHTML = "YOUR ANSWER: " + xAnswer;  //Display User's answer to modal 
+    document.getElementById("wrongAnswerMessage").innerHTML = "CORRECT ANSWER: " + answer;  //Display correct answer to modal 
+    score = 0; //This will reset the score to 0 
+    scoreDiv.innerHTML = "Score: " + score; //This will display the score to the div
+    document.getElementById("ifCorrect").style.opacity="0"; // This will hide the ifCorrect div for the ifWrong div to show
+    document.getElementById("ifWrong").style.zIndex="10";  //This will set the index of ifWrong div to put it to top and make the ifWrong's button element to be clickable
+    document.getElementById("ifWrong").style.opacity="1"; //This will show to ifWrong to the modal div
+    document.getElementById("modalCheck").style.opacity="1";    //This will show the modal
+    document.getElementById("modalCheck").style.zIndex="9999"; //This will set the z-index of modal for the modal's button element
+
+}
+
+
+function tuloy() {
+    generate_equation();
+    document.getElementById("modalCheck").style.opacity="0"; //This will hide the modal
+    document.getElementById("modalCheck").style.zIndex="-9999"; //This will send the modal to the back
+}
+
+function talo() {
+    generate_equation();
+    document.getElementById("modalCheck").style.opacity="0"; //This will hide the modal
+    document.getElementById("modalCheck").style.zIndex="-9999"; //This will send the modal to the back
+    document.getElementById("ifWrong").style.zIndex="-10"; //This will send the modal to the back of ifCorrect
+    document.getElementById("ifWrong").style.opacity="0"; //This will hide the ifWrong
+    document.getElementById("ifCorrect").style.opacity="1"; // This will hide the ifCorrect div for the ifWrong div to show
 }
