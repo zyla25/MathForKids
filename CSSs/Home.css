@@ -223,6 +223,255 @@ video {
     display: flex;
 }
 
+/* Check overlay */
+
+.checkBackground {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: absolute;
+    /* temporary */
+    opacity: 0;
+    z-index: -99999; 
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Holder of the ifCorrect and ifWrong div */
+.check-div {
+    width: 90%;
+    /* min-height: 200px;
+    height: 200px; */
+    position: relative;
+    background-color: rgb(248, 236, 229);
+    border-radius: 20px;
+    
+}
+
+/* This is the Modal Pop up for the check div */
+.ifCorrect, .ifWrong {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.ifCorrect {
+    opacity: 1;
+}
+
+.ifWrong {
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -10;
+}
+
+                    /* ifCorrect Styles */
+
+/* This are the common Styles for .correctEquation and wrongEquation */
+.correctEquation, .wrongEquation {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 0;
+}
+
+/* This is for the ifCorrect div button (continue button) */
+.nextBtn {
+    margin: 0 auto;
+    max-width: 400px;
+    width: 200px;
+    padding: 5px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(24, 182, 24);
+    margin-top: 10px;
+    font-family: "Luckiest Guy";
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: rgb(237, 46, 151);
+}
+
+/* This is Style for Correct Heading in ifCorrect div */
+.correctHeading {
+    color: rgb(4, 148, 30);
+}
+
+
+.correctNum1 {
+    color: rgb(249, 74, 5);
+}
+
+.correctOperator {
+    color: rgb(7, 130, 231);
+}
+
+.correctNum2 {
+    color: rgb(192, 173, 49);
+}
+
+.correctEqual {
+    color: rgb(208, 95, 38);
+}
+
+.correctAns {
+    color: rgb(91, 87, 85);
+}
+
+.correctMessage {
+    letter-spacing: 1px;
+    color: rgb(223, 85, 30);
+}
+
+
+                /* End of ifCorrect Styles */
+
+    /* Styles for ifWrong Elements */
+
+/* This is Style for Correct Heading in ifCorrect div */
+.wrongHeading {
+    letter-spacing: 1px;
+    color: rgb(236, 11, 11);
+}
+
+.tryBtn {
+    cursor: pointer;
+    margin: 0 auto;
+    max-width: 400px;
+    width: 200px;
+    padding: 5px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background-color: rgb(232, 34, 20);
+    margin-top: 5px;
+    font-family: "Luckiest Guy";
+    font-size: 1.2rem;
+}
+
+.wrongNum1 {
+    color: rgb(249, 74, 5);
+}
+
+.wrongOperator {
+    color: rgb(7, 130, 231);
+}
+
+.wrongNum2 {
+    color: rgb(192, 173, 49);
+}
+
+.wrongEqual {
+    color: rgb(208, 95, 38);
+}
+
+.wrongAns {
+    color: rgb(91, 87, 85);
+}
+
+.wrongMessage {
+    letter-spacing: 1px;
+    color: rgb(223, 85, 30);
+}
+
+.wrongAnswerMessage{
+    letter-spacing: 2px;
+    color: rgb(17, 137, 17);
+}
+
+
+    /* End of Styles for ifWrong Elements */
+
+/* Media Queries */
+
+@media screen and (min-width: 480px) {
+    .correctHeading {
+        font-size: 2rem;
+    }
+
+    .correctNum1 {
+        font-size: 3rem;
+    }
+    
+    .correctOperator {
+        font-size: 3rem;
+    }
+    
+    .correctNum2 {
+        font-size: 3rem;
+    }
+    
+    .correctEqual {
+        font-size: 3rem;
+    }
+    
+    .correctAns {
+        font-size: 3rem;
+    }
+    
+    .correctMessage {
+        font-size: 2rem;
+    }
+
+    .ifCorrect {
+        padding: 20px 0;
+    }
+
+    .nextBtn {
+        font-size: 2rem;
+    }
+
+    .ifWrong {
+        padding: 30px 0;
+    }
+
+    .wrongHeading {
+        font-size: 2rem;
+    }
+
+    .wrongNum1 {
+        font-size: 3rem;
+    }
+    
+    .wrongOperator {
+        font-size: 3rem;
+    }
+    
+    .wrongNum2 {
+        font-size: 3rem;
+    }
+    
+    .wrongEqual {
+        font-size: 3rem;
+    }
+    
+    .wrongAns {
+        font-size: 3rem;
+    }
+    
+    .wrongMessage {
+        font-size: 2rem;
+    }
+    
+    .wrongAnswerMessage{
+        font-size: 2rem;
+    }
+
+    .tryBtn {
+        font-size: 2rem;
+    }
+}
+
+
+
+
 @media screen and (min-width: 769px) {
     .equation-div {
         width: 80%;
@@ -248,3 +497,7 @@ video {
         width: 250px;
     }
 }
+
+
+
+
